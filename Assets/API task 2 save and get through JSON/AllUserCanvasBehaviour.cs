@@ -38,9 +38,14 @@ public class AllUserCanvasBehaviour : MonoBehaviour
         //formObject.root.userList.Count;
         for(int i=0; i<numberOfButtonsToCreate; i++)
         {
-            if(i >=currentNumberOfButtons)
+            if(i >= currentNumberOfButtons)
             {
-                listOfUserButtons.Add(Instantiate(seeUserDetailByNameBtnObject, verticalGroup));
+                GameObject button = Instantiate(seeUserDetailByNameBtnObject, verticalGroup);
+
+                //setting user id below:
+                button.GetComponent<ShowSingleUserDetailButtonBehaviour>().userNumber = i;
+
+                listOfUserButtons.Add(button);
                 listOfUserButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = formObject.root.userList[i].name;
                 currentNumberOfButtons++;
             }

@@ -11,8 +11,13 @@ public class GetDataFromJsonBinSiteBehaviour : MonoBehaviour
 
     public List<InputFormBehaviour.userData> userListNew;
 
-    public float waitTime;
-    
+    public static GetDataFromJsonBinSiteBehaviour instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     private void Start()
     {
